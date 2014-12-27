@@ -48,6 +48,10 @@ inline void restore_wp ( unsigned long cr0 )
 
     barrier();
     preempt_enable();
+    /* 
+    #define preempt_enable()			barrier()
+    can't figure out why exec barrier() twice...
+    */
 }
 #else // ARM
 void cacheflush ( void *begin, unsigned long size )

